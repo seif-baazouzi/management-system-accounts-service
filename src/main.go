@@ -1,12 +1,17 @@
 package main
 
 import (
+	"accounts-service/src/db"
+
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 )
 
 func main() {
+	db.InitDataBase()
+	defer db.CloseDataBase()
+
 	app := fiber.New()
 	app.Use(cors.New())
 
