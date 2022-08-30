@@ -18,7 +18,7 @@ var connections [10]connection
 
 func InitDataBase() {
 	databaseUrl := fmt.Sprintf(
-		"postgres://%s:%s@%s:5432/%s",
+		"postgres://%s:%s@%s:5432/%s?sslmode=disable",
 		os.Getenv("DB_USER"),
 		os.Getenv("DB_PASSWORD"),
 		os.Getenv("DB_HOST"),
