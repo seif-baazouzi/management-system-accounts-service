@@ -37,14 +37,14 @@ func Signup(c *fiber.Ctx) error {
 	}
 
 	// create user
-	err = models.CreateUser(&body)
+	userID, err := models.CreateUser(&body)
 
 	if errors != nil {
 		return utils.ServerError(c, err)
 	}
 
 	// generate token
-	token := auth.GenerateToken("email", body.UserID.String())
+	token := auth.GenerateToken("uuid", userID)
 
 	return c.Status(201).JSON(fiber.Map{"message": "success", "token": token})
 }

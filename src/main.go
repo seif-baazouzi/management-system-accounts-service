@@ -1,6 +1,7 @@
 package main
 
 import (
+	"accounts-service/src/auth"
 	"accounts-service/src/db"
 	"accounts-service/src/handlers"
 
@@ -23,6 +24,8 @@ func main() {
 
 	app.Post("/api/v1/login", handlers.Login)
 	app.Post("/api/v1/signup", handlers.Signup)
+
+	app.Put("/api/v1/settings", auth.IsLogin, handlers.UpdateUsername)
 
 	app.Listen(":3000")
 }
