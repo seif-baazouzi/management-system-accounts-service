@@ -21,6 +21,7 @@ func main() {
 		Format: "[${ip}]:${port} ${status} - ${method} ${path}\n",
 	}))
 
+	app.Post("/api/v1/login", handlers.Login)
 	app.Post("/api/v1/signup", handlers.Signup)
 
 	app.Listen(":3000")

@@ -19,7 +19,7 @@ func GetUsersByUsername(username string) ([]User, error) {
 
 	var usersList []User
 
-	rows, err := conn.Query("SELECT * FROM users WHERE username = $1", username)
+	rows, err := conn.Query("SELECT userID, username, password FROM users WHERE username = $1", username)
 
 	if err != nil {
 		return usersList, err
@@ -29,7 +29,7 @@ func GetUsersByUsername(username string) ([]User, error) {
 
 	if rows.Next() {
 		var user User
-		rows.Scan(&user)
+		rows.Scan(&user.UserID, &user.Username, &user.Password)
 		usersList = append(usersList, user)
 	}
 
