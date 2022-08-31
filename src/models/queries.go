@@ -94,3 +94,16 @@ func UpdateUser(user *User) error {
 
 	return nil
 }
+
+func DeleteUserByUserID(uuid string) error {
+	conn := db.GetPool()
+	defer db.ClosePool(conn)
+
+	_, err := conn.Exec("DELETE FROM users WHERE userID = $1", uuid)
+
+	if err != nil {
+		return err
+	}
+
+	return nil
+}

@@ -19,3 +19,7 @@ type UpdatePassword struct {
 	OldPassword string `json:"oldPassword"`
 	NewPassword string `json:"newPassword"`
 }
+
+type DeleteUser struct {
+	Password string `json:"password"`
+}

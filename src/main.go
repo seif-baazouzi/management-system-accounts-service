@@ -28,5 +28,7 @@ func main() {
 	app.Put("/api/v1/settings/update/username", auth.IsLogin, handlers.UpdateUsername)
 	app.Put("/api/v1/settings/update/password", auth.IsLogin, handlers.UpdatePassword)
 
+	app.Delete("/api/v1/settings/delete-user", auth.IsLogin, handlers.DeleteUser)
+
 	app.Listen(":3000")
 }
