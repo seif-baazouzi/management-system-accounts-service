@@ -8,17 +8,6 @@ import (
 	"github.com/google/uuid"
 )
 
-type User struct {
-	UserID   uuid.UUID
-	Username string `json:"username"`
-	Password string `json:"password"`
-}
-
-type UpdateUsername struct {
-	NewUsername string `json:"newUsername"`
-	Password    string `json:"password"`
-}
-
 func GetUserByUserID(userID string) (User, error) {
 	conn := db.GetPool()
 	defer db.ClosePool(conn)

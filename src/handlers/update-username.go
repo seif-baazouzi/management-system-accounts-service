@@ -50,10 +50,7 @@ func UpdateUsername(c *fiber.Ctx) error {
 	}
 
 	// update username
-	user.Username = body.NewUsername
-	user.Password = body.Password
-
-	models.UpdateUser(&user)
+	models.UpdateUser(&models.User{Username: body.NewUsername, Password: body.Password})
 
 	return c.Status(201).JSON(fiber.Map{"message": "success"})
 }
