@@ -26,7 +26,6 @@ func IsLogin(c *fiber.Ctx) error {
 	}
 
 	uuid := claims["uuid"].(string)
-	fmt.Println(claims["uuid"])
 	c.Locals("uuid", uuid)
 
 	return c.Next()

@@ -9,8 +9,8 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func UpdateUsername(c *fiber.Ctx) error {
-	var body models.UpdateUsername
+func UpdatePassword(c *fiber.Ctx) error {
+	var body models.UpdatePassword
 
 	uuid := fmt.Sprintf("%s", c.Locals("uuid"))
 
@@ -21,21 +21,10 @@ func UpdateUsername(c *fiber.Ctx) error {
 	}
 
 	// check input
-	errors := checks.CheckUpdateUsername(&body)
+	errors := checks.CheckUpdatePassword(&body)
 
 	if errors != nil {
 		return c.JSON(errors)
-	}
-
-	// check if not user is exist
-	usersList, err := models.GetUsersByUsername(body.NewUsername)
-
-	if errors != nil {
-		return utils.ServerError(c, err)
-	}
-
-	if len(usersList) != 0 {
-		return c.JSON(fiber.Map{"newUsername": "This username is already exist"})
 	}
 
 	// check password
@@ -45,15 +34,15 @@ func UpdateUsername(c *fiber.Ctx) error {
 		return utils.ServerError(c, err)
 	}
 
-	if !utils.ComparePasswords(body.Password, user.Password) {
+	if !utils.ComparePasswords(body.OldPassword, user.Password) {
 		return c.JSON(fiber.Map{"username": "Wrong Password"})
 	}
 
-	// update username
+	// update password
 	models.UpdateUser(&models.User{
 		UserID:   user.UserID,
-		Username: body.NewUsername,
-		Password: body.Password,
+		Username: user.Username,
+		Password: body.NewPassword,
 	})
 
 	return c.Status(201).JSON(fiber.Map{"message": "success"})
