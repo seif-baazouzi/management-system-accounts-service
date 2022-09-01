@@ -38,5 +38,5 @@ func DeleteUser(c *fiber.Ctx) error {
 	// delete user
 	models.DeleteUserByUserID(uuid)
 
-	return c.Status(201).JSON(fiber.Map{"message": "success"})
+	return c.JSON(fiber.Map{"message": "success"})
 }

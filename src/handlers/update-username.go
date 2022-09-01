@@ -56,5 +56,5 @@ func UpdateUsername(c *fiber.Ctx) error {
 		Password: body.Password,
 	})
 
-	return c.Status(201).JSON(fiber.Map{"message": "success"})
+	return c.JSON(fiber.Map{"message": "success"})
 }

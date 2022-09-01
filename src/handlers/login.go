@@ -46,5 +46,5 @@ func Login(c *fiber.Ctx) error {
 	// generate token
 	token := auth.GenerateToken("uuid", user.UserID.String())
 
-	return c.Status(201).JSON(fiber.Map{"message": "success", "token": token})
+	return c.JSON(fiber.Map{"message": "success", "token": token})
 }
