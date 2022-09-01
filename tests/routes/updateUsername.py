@@ -1,6 +1,6 @@
 import utils
 import config
-from testRestApi import testRoute, Test, POST, PUT
+from testRestApi import testRoute, Test, PUT
 
 def testToken():
     res = testRoute(PUT, f"{config.server}/api/v1/settings/update/username")
