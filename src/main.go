@@ -25,6 +25,8 @@ func main() {
 	app.Post("/api/v1/login", handlers.Login)
 	app.Post("/api/v1/signup", handlers.Signup)
 
+	app.Get("/api/v1/user", auth.IsLogin, handlers.GetUser)
+
 	app.Put("/api/v1/settings/update/username", auth.IsLogin, handlers.UpdateUsername)
 	app.Put("/api/v1/settings/update/password", auth.IsLogin, handlers.UpdatePassword)
 
