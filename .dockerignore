@@ -1,0 +1,6 @@
+test/
+docs/
+LICENSE
+README.md
+Dockerfile
+.dockerignore
