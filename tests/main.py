@@ -5,6 +5,7 @@ import routes.signup as signup
 import routes.updateUsername as updateUsername
 import routes.updatePassword as updatePassword
 import routes.deleteUser as deleteUser
+import routes.getUser as getUser
 
 if __name__ == "__main__":
     runTests([
@@ -13,4 +14,5 @@ if __name__ == "__main__":
         *updateUsername.tests,
         *updatePassword.tests,
         *deleteUser.tests,
+        *getUser.tests,
     ])
