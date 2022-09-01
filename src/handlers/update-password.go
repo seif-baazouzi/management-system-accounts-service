@@ -35,7 +35,7 @@ func UpdatePassword(c *fiber.Ctx) error {
 	}
 
 	if !utils.ComparePasswords(body.OldPassword, user.Password) {
-		return c.JSON(fiber.Map{"password": "Wrong Password"})
+		return c.JSON(fiber.Map{"oldPassword": "Wrong Password"})
 	}
 
 	// update password
