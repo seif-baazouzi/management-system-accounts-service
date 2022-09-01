@@ -45,6 +45,6 @@ Used to create user and his token.
 
 ```json
 {
-    "message": "server-error",
+    "message": "server-error"
 }
 ```

@@ -44,6 +44,6 @@ Used to update user password.
 
 ```json
 {
-    "message": "server-error",
+    "message": "server-error"
 }
 ```

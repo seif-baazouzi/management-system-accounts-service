@@ -45,6 +45,6 @@ Used to get user token.
 
 ```json
 {
-    "message": "server-error",
+    "message": "server-error"
 }
 ```

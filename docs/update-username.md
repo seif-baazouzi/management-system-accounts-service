@@ -44,6 +44,6 @@ Used to update user username.
 
 ```json
 {
-    "message": "server-error",
+    "message": "server-error"
 }
 ```

@@ -1,6 +1,6 @@
 # Delete User
 
-Used to update user account.
+Used to delete user account.
 
 **URL**: `/api/v1/settings/delete-user`
 
@@ -12,7 +12,7 @@ Used to update user account.
 
 ```json
 {
-    "password": "password",
+    "password": "password"
 }
 ```
 
@@ -22,7 +22,7 @@ Used to update user account.
 
 ```json
 {
-    "message": "success",
+    "message": "success"
 }
 ```
 
@@ -32,7 +32,7 @@ Used to update user account.
 
 ```json
 {
-    "password": "password error message",
+    "password": "password error message"
 }
 ```
 
@@ -42,6 +42,6 @@ Used to update user account.
 
 ```json
 {
-    "message": "server-error",
+    "message": "server-error"
 }
 ```
