@@ -40,7 +40,7 @@ func Login(c *fiber.Ctx) error {
 
 	// check password
 	if !utils.ComparePasswords(body.Password, user.Password) {
-		return c.JSON(fiber.Map{"username": "Wrong Password"})
+		return c.JSON(fiber.Map{"password": "Wrong Password"})
 	}
 
 	// generate token

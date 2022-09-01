@@ -16,6 +16,17 @@ def testNotExistingUser():
 
     return res.equals({ "username": "This username does not exist"})
 
+def testWrongPassword():
+    username, password, token = utils.signup()
+
+    body = {
+        "username": username,
+        "password": utils.randomString(10),
+    }
+    res = testRoute(POST, f"{config.server}/api/v1/login", body=body)
+    
+    return res.equals({ "password": "Wrong Password"})
+
 def testLogin():
     body = {
         "username": utils.randomString(10),
@@ -30,5 +41,6 @@ def testLogin():
 tests = [
     Test("Login Empty Fields", testEmptyFields),
     Test("Login Not Existing User", testNotExistingUser),
+    Test("Login Wrong Password", testWrongPassword),
     Test("Login", testLogin),
 ]
