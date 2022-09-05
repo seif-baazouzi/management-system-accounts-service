@@ -10,6 +10,8 @@ This is the accounts service for my management system.
 
 # Quick Start
 
+Started Manually
+
 ```console
 $ export DB_USER="postgres"
 $ export DB_PASSWORD="password"
@@ -19,6 +21,12 @@ $ export JWT_SECRET="JWT_SECRET"
 $ export PORT="3000"
 
 $ go run ./src/main.go
+```
+
+Using Docker-compose
+
+```
+$ docker-compose up --build
 ```
 
 # Documentation
