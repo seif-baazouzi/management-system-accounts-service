@@ -4,6 +4,8 @@ import (
 	"accounts-service/src/auth"
 	"accounts-service/src/db"
 	"accounts-service/src/handlers"
+	"fmt"
+	"os"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
@@ -32,5 +34,5 @@ func main() {
 
 	app.Delete("/api/v1/settings/delete-user", auth.IsLogin, handlers.DeleteUser)
 
-	app.Listen(":3000")
+	app.Listen(fmt.Sprintf(":%s", os.Getenv("PORT")))
 }

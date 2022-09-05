@@ -16,6 +16,7 @@ $ export DB_PASSWORD="password"
 $ export DB_HOST="172.17.0.1"
 $ export DB_NAME="accounts"
 $ export JWT_SECRET="JWT_SECRET"
+$ export PORT="3000"
 
 $ go run ./src/main.go
 ```
