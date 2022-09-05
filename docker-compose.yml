@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  api:
+    build: .
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    environment:
+      DB_USER: "postgres"
+      DB_PASSWORD: "password"
+      DB_HOST: "db"
+      DB_NAME: "accounts"
+      JWT_SECRET: "JWT_SECRET"
+      PORT: "3000"    
+  
+  db:
+    build: database
+    environment:
+      POSTGRES_PASSWORD: "password"
