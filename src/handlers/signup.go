@@ -39,7 +39,7 @@ func Signup(c *fiber.Ctx) error {
 	// create user
 	userID, err := models.CreateUser(&body)
 
-	if errors != nil {
+	if err != nil {
 		return utils.ServerError(c, err)
 	}
 
